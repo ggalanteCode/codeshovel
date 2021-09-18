@@ -1,0 +1,55 @@
+{
+  "origin": "codeshovel",
+  "repositoryName": "WraithEngine",
+  "repositoryPath": "C:\\Users\\User\\WraithEngine/.git",
+  "startCommitName": "01b49e9a41f18fe30099a357dfefdcd279c3a3b7",
+  "sourceFileName": "FramerateLimiterAction.java",
+  "functionName": "run",
+  "functionId": "run",
+  "sourceFilePath": "src/main/java/net/whg/lib/actions/FramerateLimiterAction.java",
+  "functionStartLine": 32,
+  "functionEndLine": 40,
+  "numCommitsSeen": 3,
+  "timeTaken": 288,
+  "changeHistory": [
+    "01b49e9a41f18fe30099a357dfefdcd279c3a3b7",
+    "e7fe510e9c2f66a9aefa921c6c4499c38e59c986"
+  ],
+  "changeHistoryShort": {
+    "01b49e9a41f18fe30099a357dfefdcd279c3a3b7": "Ybodychange",
+    "e7fe510e9c2f66a9aefa921c6c4499c38e59c986": "Yintroduced"
+  },
+  "changeHistoryDetails": {
+    "01b49e9a41f18fe30099a357dfefdcd279c3a3b7": {
+      "type": "Ybodychange",
+      "commitMessage": "Refactored framerate limiter.\n",
+      "commitDate": "27/05/20, 16:59",
+      "commitName": "01b49e9a41f18fe30099a357dfefdcd279c3a3b7",
+      "commitAuthor": "TheDudeFromCI",
+      "commitDateOld": "14/05/20, 06:38",
+      "commitNameOld": "c1684cf20fd5841400991ce5779b006e34db1013",
+      "commitAuthorOld": "TheDudeFromCI",
+      "daysBetweenCommits": 13.43,
+      "commitsBetweenForRepo": 4,
+      "commitsBetweenForFile": 1,
+      "actualSource": "    public void run()\n    {\n        double delta \u003d timer.getDeltaTime();\n        double toWait \u003d (smoothing + delta) / 2;\n        smoothing \u003d delta;\n\n        var seconds \u003d (float) ((2 / targetFPS) - toWait);\n        timer.sleep(seconds);\n    }",
+      "path": "src/main/java/net/whg/lib/actions/FramerateLimiterAction.java",
+      "functionStartLine": 32,
+      "functionName": "run",
+      "diff": "@@ -1,16 +1,9 @@\n     public void run()\n     {\n         double delta \u003d timer.getDeltaTime();\n         double toWait \u003d (smoothing + delta) / 2;\n         smoothing \u003d delta;\n \n-        toWait \u003d (2 / targetFPS) - toWait;\n-\n-        if (toWait \u003e 0)\n-        {\n-            long ms \u003d (long) (toWait * 1000);\n-            int ns \u003d (int) ((toWait % 0.001) * 1.0e+9);\n-\n-            sleep(ms, ns);\n-        }\n+        var seconds \u003d (float) ((2 / targetFPS) - toWait);\n+        timer.sleep(seconds);\n     }\n\\ No newline at end of file\n",
+      "extendedDetails": {}
+    },
+    "e7fe510e9c2f66a9aefa921c6c4499c38e59c986": {
+      "type": "Yintroduced",
+      "commitMessage": "Created framerate limiter action.\n",
+      "commitDate": "12/05/20, 14:14",
+      "commitName": "e7fe510e9c2f66a9aefa921c6c4499c38e59c986",
+      "commitAuthor": "TheDudeFromCI",
+      "diff": "@@ -0,0 +1,16 @@\n+    public void run()\n+    {\n+        double delta \u003d timer.getDeltaTime();\n+        double toWait \u003d (smoothing + delta) / 2;\n+        smoothing \u003d delta;\n+\n+        toWait \u003d (2 / targetFPS) - toWait;\n+\n+        if (toWait \u003e 0)\n+        {\n+            long ms \u003d (long) (toWait * 1000);\n+            int ns \u003d (int) ((toWait % 0.001) * 1.0e+9);\n+\n+            sleep(ms, ns);\n+        }\n+    }\n\\ No newline at end of file\n",
+      "actualSource": "    public void run()\n    {\n        double delta \u003d timer.getDeltaTime();\n        double toWait \u003d (smoothing + delta) / 2;\n        smoothing \u003d delta;\n\n        toWait \u003d (2 / targetFPS) - toWait;\n\n        if (toWait \u003e 0)\n        {\n            long ms \u003d (long) (toWait * 1000);\n            int ns \u003d (int) ((toWait % 0.001) * 1.0e+9);\n\n            sleep(ms, ns);\n        }\n    }",
+      "path": "src/main/java/net/whg/lib/actions/FramerateLimiterAction.java",
+      "functionStartLine": 32,
+      "functionName": "run"
+    }
+  }
+}
